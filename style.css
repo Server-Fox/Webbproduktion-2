@@ -1,0 +1,236 @@
+/* Definerar färger */
+:root {
+
+    --cordovan: #90323dff;
+    --old-rose: #b57e78ff;
+    --alabaster: #ece5d9ff;
+    --dun: #d9cab3ff;
+    --lion: #cba574ff;
+    --bronze: #bc8034ff;
+    --chamoisee: #a47d50ff;
+    --beaver: #8c7a6bff;
+}
+.liter-regular{
+    font-family: "Liter", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.sök-container {
+    display: flex;
+    align-items: center;
+    background-color: var(--dun);
+    width: 100%;
+    border-radius: 10px;
+    padding: 0.5rem;
+}
+#sök {
+    border: none;
+    background: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+}
+.sök-knapp:hover {
+    border-radius: 2rem;
+    border: 2px solid var(--cordovan);
+}
+.sök-knapp{
+    background: none;
+    color: var(--cordovan);
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    gap: 4rem;
+    background-color: var(--cordovan);
+    color: var(--alabaster);
+    border-radius: 10px;
+    padding: 1rem;
+    position: absolute top;
+}
+header>a>span{
+    border-radius: 2rem;
+    border: 2px solid var(--old-rose);
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    background-color: var(--cordovan);
+}
+header>a>span:hover{
+    background-color: var(--old-rose);
+}
+header>div>button:hover{
+    
+}
+header>a{
+    
+    text-decoration: none;
+    margin: auto;
+    color: var(--alabaster);
+    font-family: "liter", serif;
+}
+body{
+    font-family: "liter", serif;
+    background-color: var(--dun);
+    color: var(--chocolate-cosmos);
+    margin: 0;
+    padding: 0;
+}
+main{
+    background-color: var(--dun);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    padding-top: 5rem;
+}
+main>a,main>article{
+    text-decoration: none;
+    color: var(--alabaster);
+    background-color: var(--chamoisee);
+    border-radius: 10px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+main>a>img, main>article>img{
+    width: 100%;
+    border-radius: 10px;
+}
+main>article>button{
+    background-color: var(--old-rose);
+    color: var(--alabaster);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.varukorg-sida {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+}
+.varukorg-sida article {
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+.varukorg-sida article img {
+    max-width: 150px;
+}
+.cart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: var(--cordovan);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+.clear-cart-btn {
+    background-color: var(--old-rose);
+    color: var(--alabaster);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.clear-cart-btn:hover {
+    background-color: #a25259;
+}
+.cart-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.confirm-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.confirm-buttons button {
+    background-color: var(--old-rose);
+    color: var(--alabaster);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+@media screen and (min-width: 569px) and (max-width: 1024px) {
+    header, .sök-container, main, aside {
+        
+        align-items: center;
+        text-align: center;
+    }
+    header {
+        gap: 0.5rem;
+    }
+    header a {
+        order: 1;
+        width: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: space-around;
+    }
+    .sök-container {
+        grid-column: 1 / span 2;
+        grid-row: 2;
+        flex-direction: row;
+        order: 2;
+        width: 100%;
+        margin: 0.5rem;
+    }
+    main {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 1rem;
+        padding: 1rem;
+    }
+     main a, main article {
+        padding: 0.5rem;
+    }
+    aside {
+        width: 90%;
+        margin: 1rem 0;
+        position: static;
+    }
+}
+
+@media screen and (max-width: 568px) {
+    main {
+        grid-template-columns: 1fr !important;
+    }
+    header {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        gap: 0.5rem;
+    }
+    header a {
+        
+        width: auto;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .sök-container {
+        grid-column: 1 / span 2;
+        flex-direction: row;
+        order: 2;
+        width: auto;
+        margin: .5rem;
+    }
+    main a, main article {
+        padding: 0.5rem;
+    }
+}
