@@ -81,8 +81,8 @@ main>article>p{
     background-color: #a25259;
 }
 .category-filters {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto;
     gap: 0.5rem;
     margin-top: 1rem;
 }
@@ -100,9 +100,6 @@ main>article>p{
     background-color: #a25259;
 }
 
-.filter-btn.active {
-    background-color: var(--cordovan);
-}
 @keyframes fadeOut {
     0% {
         opacity: 1;
@@ -123,5 +120,11 @@ main>article>p{
         position: static;
         width: auto;
         margin: 1rem;
+    }
+    .category-filters{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 0.5rem;
+        margin-top: 1rem;
     }
 }

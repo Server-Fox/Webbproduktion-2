@@ -181,9 +181,14 @@ main>article>button{
         order: 1;
         width: auto;
         display: grid;
+        
         grid-template-columns: 1fr 1fr;
         justify-content: space-around;
     }
+    header a span {
+    
+    }
+
     .sök-container {
         grid-column: 1 / span 2;
         grid-row: 2;
@@ -213,6 +218,7 @@ main>article>button{
     }
     header {
         display: grid;
+        padding-top: 1.5rem;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto auto;
         gap: 0.5rem;

@@ -122,7 +122,49 @@ let produkter = {
             image: '/img/produkter/ssd/Samsung 870 EVO 2TB.webp',
             price: 1499,
             quantity: 1
+        },
+        {
+            name: 'MSI MPG Z790 Thomahawk WIFI',
+            catagory: 'moderkort',
+            image: '/img/produkter/moderkort/MSI MPG Z790 Thomahawk WIFI.webp',
+            price: 1999,
+            quantity: 1
+        },
+        {
+            name: 'Asus ROG Strix Z790-E Gaming',
+            catagory: 'moderkort',
+            image: '/img/produkter/moderkort/Asus ROG Strix Z790-E Gaming.webp',
+            price: 2499,
+            quantity: 1
+        },
+        {
+            name: 'Gigabyte x670 Aorus Elite AX',
+            catagory: 'moderkort',
+            image: '/img/produkter/moderkort/Gigabyte x670 Aorus Elite AX.webp',
+            price: 1799,
+        },
+        {
+            name: 'Corsair RM850x',
+            catagory: 'psu',
+            image: '/img/produkter/psu/Corsair RM850x.webp',
+            price: 1299,
+            quantity: 1
+        },
+        {
+            name: 'Corsair RM1000x',
+            catagory: 'psu',
+            image: '/img/produkter/psu/Corsair RM1000x.webp',
+            price: 1599,
+            quantity: 1
+        },
+        {   name:'ASUS TUF Gaming 1000W',
+            catagory:'psu',
+            image:'/img/produkter/psu/ASUS TUF Gaming 1000W.webp',
+            price: 1999,
+            quantity: 1
         }
+
+
 
 
     ],
@@ -157,8 +199,7 @@ function setupFilters() {
     filterSection.className = 'category-filters';
     
     filterSection.innerHTML = `
-        <h3>Kategorier</h3>
-        <button onclick="displayProducts('all')" class="filter-btn active">Alla</button>
+        <button onclick="displayProducts('all')" class="filter-btn">Alla</button>
         <button onclick="displayProducts('cpu')" class="filter-btn">Processorer</button>
         <button onclick="displayProducts('gpu')" class="filter-btn">Grafikkort</button>
         <button onclick="displayProducts('ram')" class="filter-btn">RAM</button>
