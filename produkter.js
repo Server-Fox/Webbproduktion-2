@@ -1,3 +1,5 @@
+// Lista med alla produkter
+// hårdkodad data för att simulera en databas
 let produkter = {
     data: [
         {
@@ -147,6 +149,7 @@ let produkter = {
             name: 'Corsair RM850x',
             catagory: 'psu',
             image: '/img/produkter/psu/Corsair RM850x.webp',
+            wattege: 850,
             price: 1299,
             quantity: 1
         },
@@ -154,13 +157,15 @@ let produkter = {
             name: 'Corsair RM1000x',
             catagory: 'psu',
             image: '/img/produkter/psu/Corsair RM1000x.webp',
-            price: 1599,
+            wattege: 1000,
+            price: 1899,
             quantity: 1
         },
         {   name:'ASUS TUF Gaming 1000W',
             catagory:'psu',
             image:'/img/produkter/psu/ASUS TUF Gaming 1000W.webp',
-            price: 1999,
+            wattege: 1000,
+            price: 2199,
             quantity: 1
         }
 
@@ -178,7 +183,8 @@ function displayProducts(category = 'all') {
     const filteredProducts = category === 'all' 
         ? produkter.data 
         : produkter.data.filter(product => product.catagory === category);
-    
+
+        // Visa resultat kategori
         filteredProducts.forEach(product => {
             const productElement = document.createElement('article');
             productElement.innerHTML = `
@@ -212,39 +218,47 @@ function setupFilters() {
 }
 
 // Sökfunktion
-function setupSearch() {
-    const searchInput = document.getElementById('sök');
-    const searchButton = document.querySelector('.sök-knapp');
-
-    searchButton.addEventListener('click', () => {
-        const searchTerm = searchInput.value.toLowerCase();
-        const productsContainer = document.getElementById('products');
-        productsContainer.innerHTML = '';
-
-        const filteredProducts = produkter.data.filter(product => 
-            product.name.toLowerCase().includes(searchTerm)
-        );
-
-        filteredProducts.forEach(product => {
-            const productElement = document.createElement('article');
-            productElement.innerHTML = `
-                <h2>${product.name}</h2>
-                <img src="./${product.image}" alt="${product.name}">
-                <p>${product.price}kr</p>
-                <button type="button" onclick="addToCart('${product.name}', ${product.price}, '../${product.image}')">
-                    Lägg till i varukorg
-                </button>
-            `;
-            productsContainer.appendChild(productElement);
-        });
+function displaySearchResults(results, searchTerm) {
+    const productsContainer = document.getElementById('products');
+    productsContainer.innerHTML = '';
+    
+    // Om inga resultat hittades
+    if (results.length === 0) {
+        productsContainer.innerHTML = `<h2>Inga resultat hittades för "${searchTerm}"</h2>`;
+        return;
+    }
+    // Visa sökresultat
+    results.forEach(product => {
+        const productElement = document.createElement('article');
+        productElement.innerHTML = `
+            <h2>${product.name}</h2>
+            <img src=".${product.image}" alt="${product.name}">
+            <p>${product.price}kr</p>
+            <button type="button" onclick="addToCart('${product.name}', ${product.price}, '.${product.image}')">
+                Lägg till i varukorg
+            </button>
+        `;
+        productsContainer.appendChild(productElement);
     });
 }
 
 // Initialisera sidan
 document.addEventListener('DOMContentLoaded', () => {
     setupFilters();
-    setupSearch();
     const params = new URLSearchParams(window.location.search);
-    const category = params.get('category') || 'all';
-    displayProducts(category);
+    const category = params.get('category');
+    const searchTerm = params.get('search');
+
+    // Kör sökfunktionen om det finns en sökterm
+    if (searchTerm) {
+        const searchResults = produkter.data.filter(product => 
+            product.name.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        displaySearchResults(searchResults, searchTerm);
+    }
+
+    // Anars visa produkter baserat på kategori
+    else {
+        displayProducts(category || 'all');
+    }
 });

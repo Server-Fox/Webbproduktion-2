@@ -102,5 +102,33 @@ function confirmClearCart(confirmed, buttonElement) {
     }
 }
 
+function setupSearch() {
+    const searchInput = document.getElementById('sök');
+    const searchButton = document.querySelector('.sök-knapp');
+
+    searchButton.addEventListener('click', () => {
+        const searchTerm = searchInput.value.trim();
+        if (searchTerm) {
+            // Encode the search term for URL
+            const encodedSearch = encodeURIComponent(searchTerm);
+            // Redirect to webshop with search parameter
+            window.location.href = `./webshop.html?search=${encodedSearch}`;
+        }
+    });
+    
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const searchTerm = searchInput.value.trim();
+            if (searchTerm) {
+                const encodedSearch = encodeURIComponent(searchTerm);
+                window.location.href = `./webshop.html?search=${encodedSearch}`;
+            }
+        }
+    });
+}
+
 // Kör displayCart när sidan laddas
-document.addEventListener('DOMContentLoaded', displayCart());
+document.addEventListener('DOMContentLoaded', () => {
+    setupSearch();
+    displayCart();
+});

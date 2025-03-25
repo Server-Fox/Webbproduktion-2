@@ -63,9 +63,6 @@ header>a>span{
 header>a>span:hover{
     background-color: var(--old-rose);
 }
-header>div>button:hover{
-    
-}
 header>a{
     
     text-decoration: none;
@@ -100,8 +97,11 @@ main>a,main>article{
 }
 main>a>img, main>article>img{
     width: 100%;
+    max-width: 350px;
+    max-height: 350px;
     border-radius: 10px;
 }
+
 main>article>button{
     background-color: var(--old-rose);
     color: var(--alabaster);
@@ -185,9 +185,7 @@ main>article>button{
         grid-template-columns: 1fr 1fr;
         justify-content: space-around;
     }
-    header a span {
-    
-    }
+
 
     .sök-container {
         grid-column: 1 / span 2;
