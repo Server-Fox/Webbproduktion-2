@@ -224,7 +224,7 @@ function displaySearchResults(results, searchTerm) {
     
     // Om inga resultat hittades
     if (results.length === 0) {
-        productsContainer.innerHTML = `<h2>Inga resultat hittades för "${searchTerm}"</h2>`;
+        productsContainer.innerHTML = `<h2 class="no-results">Inga resultat hittades för "${searchTerm}"</h2>`;
         return;
     }
     // Visa sökresultat

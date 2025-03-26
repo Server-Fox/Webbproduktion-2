@@ -49,7 +49,15 @@ main>article>p{
     gap: 2rem;
     padding: 2rem;
 }
-
+.no-results {
+    color: var(--cordovan);
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    background-color: var(--alabaster);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 #products article {
     background-color: var(--chamoisee);
     border-radius: 10px;

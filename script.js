@@ -71,12 +71,36 @@ function displayCart() {
             <h3>${item.name}</h3>
             <p>Antal: ${item.quantity}</p>
             <p>Pris: ${item.price}kr</p>
-            <button onclick="removeFromCart('${item.name}')">Ta bort</button>
+            <div class="quantity-buttons">
+                <button onclick="decreaseQuantity('${item.name}')">-</button>
+                <button onclick="increaseQuantity('${item.name}')">+</button>
+            </div>
+            <button onclick="removeFromCart('${item.name}')">Ta bort allt</button>
         `;
         cartContainer.appendChild(productElement);
     });
 }
-
+//funkton att lägga till en produkt en produkt i taget
+function increaseQuantity(name) {
+    const product = cart.find(item => item.name === name);
+    if (product) {
+        product.quantity += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+}
+//funkton att ta bort en produkt en produkt i taget
+function decreaseQuantity(name) {
+    const product = cart.find(item => item.name === name);
+    if (product) {
+        product.quantity -= 1;
+        if (product.quantity <= 0) {
+            cart = cart.filter(item => item.name !== name);
+        }
+        localStorage.setItem('cart', JSON.stringify(cart));
+        displayCart();
+    }
+}
 // Funktion för att ta bort produkt från varukorgen
 function removeFromCart(name) {
     cart = cart.filter(item => item.name !== name);
